@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Feedback Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e8f5e9;
+            border-radius: 5px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Student Feedback Form</h2>
+
+        <form id="feedbackForm">
+            <label for="studentName">Student Name:</label>
+            <input type="text" id="studentName"
+                   placeholder="Enter your name" required>
+
+            <label for="feedback">Your Feedback:</label>
+            <textarea id="feedback"
+                      placeholder="Enter your feedback"
+                      rows="4" required></textarea>
+
+            <button type="submit" id="submitBtn">
+                Submit
+            </button>
+        </form>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+        const button = document.getElementById("submitBtn");
+
+        button.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("studentName").value;
+            const feedback = document.getElementById("feedback").value;
+
+            const message = `Student Name: ${name}
+Feedback: ${feedback}`;
+
+            document.getElementById("output").textContent = message;
+        });
+    </script>
+
+</body>
+</html>
